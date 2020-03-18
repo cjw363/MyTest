@@ -2,19 +2,33 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 	<data>
 		<variable name="user" type="com.cjw.mytest.data.User"/>
+		<variable
+			name="handlers"
+			type="com.cjw.mytest.MyHandlers" />
 	</data>
 	<LinearLayout
 		android:orientation="vertical"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent">
+		android:layout_height="match_parent"
+		android:gravity="center">
 		<TextView
 			android:id="@+id/tv1"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:textColor="#000"
+			android:textSize="20sp"
+			android:onClick="@{()->handlers.onClickHandler()}"
 			android:text="hahas"/>
 		<TextView android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:text="@{user.lastName}"/>
+			android:textSize="20sp"
+			android:text='@{user.lastName != null ? user.lastName : "null"}'/>
+		<Button
+			android:id="@+id/bt"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="点我"
+			android:onClick="@{()->handlers.onClickHandler()}"
+			/>
 	</LinearLayout>
 </layout>
